@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //links the css file
 import "./styles.css";
+//import "googleapis";
 
 //creates the global variables
 let scene, renderer, camera;
@@ -21,11 +22,13 @@ function togglePopup(){
   document.getElementById("popup-1").classList.toggle("active");
 }
 
-//google sheet link code
+/*google sheet link code
 const { google } = require('googleapis');
 
-const serviceAccountKeyFile = "./arcane-force-342206-e7736d717b0b.json";
-const sheetId = '1zO4C2wUAZsD232YQ8D12P02wa4lOpyTBgf77f6RDe9g'
+//const serviceAccountKeyFile = "./arcane-force-342206-e7736d717b0b.json";
+const serviceAccountKeyFile = "./bwvproject-e477ac63a1d2.json";
+//const sheetId = '1zO4C2wUAZsD232YQ8D12P02wa4lOpyTBgf77f6RDe9g'
+const sheetId = 'e477ac63a1d2ade1c11d4c30d42330753e4caeed'
 const tabName = 'Users'
 const range = 'A:E'
 
@@ -64,7 +67,7 @@ async function _writeGoogleSheet(googleSheetClient, sheetId, tabName, range, dat
       "values": data
     },
   })
-}
+}*/
 
 //creates a perspective camera
 camera = new THREE.PerspectiveCamera(
