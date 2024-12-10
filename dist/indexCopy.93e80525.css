@@ -1,0 +1,164 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+
+  /*Creates a grid*/
+  display: grid;
+  /*Makes 12 equaly sized columns to position all the child elements such as section*/
+  grid-template-columns: repeat(12, 1fr);
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+header {
+  background: var(--dark-bg);
+  /*start at the second column and span 5*/
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: 25px;
+}
+
+section {
+  /*start this element at the second column and end on the 8th*/
+  grid-column: 2 / 8;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 5;
+  grid-row: 2 / 3;
+  margin-bottom: var(--spacing);
+}
+
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 4rem;
+  display: inline;
+  line-height: 1;
+}
+
+.left {
+  grid-column: 6 / 12;
+  margin-bottom: 70em;
+}
+
+.centre {
+  grid-column: 2 / 12;
+  margin-bottom: 2em;
+}
+
+.popup .overlay{
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.7);
+  z-index:1;
+  display:none;
+}
+
+.popup .content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) scale(0);
+  background:#000000;
+  width:450px;
+  height:220px;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+.popup .close-btn{
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  top:20px;
+  width:30px;
+  height:30px;
+  background:#222;
+  color:#fff;
+  font-size:25px;
+  font-weight:600;
+  line-height:30px;
+  text-align:center;
+  border-radius:50%;
+}
+
+.popup.active .overlay{
+  display:block;
+}
+
+.popup.active .content{
+  transition:all 800ms ease-in-out;
+  transform:translate(-50%, -50%) scale(1);
+}
+
+div {
+  margin-bottom: 2em; /* adds 2 units of spacing after each div */
+}
+
+a {
+  color: #ff0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  padding: 30px 64px;
+  font-size: 16px;
+}
+
+a,
+input,
+select {
+  pointer-events: auto;
+}
+
+
+/*# sourceMappingURL=/indexCopy.93e80525.css.map */
