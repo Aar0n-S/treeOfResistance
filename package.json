@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "googleapis": "^96.0.0",
     "noisejs": "2.0.0",
     "three": "0.120.1",
     "tone": "14.7.58"

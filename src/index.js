@@ -21,6 +21,50 @@ function togglePopup(){
   document.getElementById("popup-1").classList.toggle("active");
 }
 
+//google sheet link code
+const { google } = require('googleapis');
+
+const serviceAccountKeyFile = "./arcane-force-342206-e7736d717b0b.json";
+const sheetId = '1zO4C2wUAZsD232YQ8D12P02wa4lOpyTBgf77f6RDe9g'
+const tabName = 'Users'
+const range = 'A:E'
+
+//Get auth client using service account key
+async function _getGoogleSheetClient() {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: serviceAccountKeyFile,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+  const authClient = await auth.getClient();
+  return google.sheets({
+    version: 'v4',
+    auth: authClient,
+  });
+}
+
+//read from the sheet
+async function _readGoogleSheet(googleSheetClient, sheetId, tabName, range) {
+  const res = await googleSheetClient.spreadsheets.values.get({
+    spreadsheetId: sheetId,
+    range: `${tabName}!${range}`,
+  });
+
+  return res.data.values;
+}
+
+//write to the sheet#
+async function _writeGoogleSheet(googleSheetClient, sheetId, tabName, range, data) {
+  await googleSheetClient.spreadsheets.values.append({
+    spreadsheetId: sheetId,
+    range: `${tabName}!${range}`,
+    valueInputOption: 'USER_ENTERED',
+    insertDataOption: 'INSERT_ROWS',
+    resource: {
+      "majorDimension": "ROWS",
+      "values": data
+    },
+  })
+}
 
 //creates a perspective camera
 camera = new THREE.PerspectiveCamera(
